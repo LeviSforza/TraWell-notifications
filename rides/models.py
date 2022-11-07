@@ -27,19 +27,3 @@ class Participation(models.Model):
     decision = models.CharField(choices=Decision.choices, default=Decision.PENDING, max_length=9)
     reserved_seats = models.IntegerField(default=1, blank=False, null=False)
 
-    def delete(self, using=None, keep_parents=False):
-        super(Participation, self).delete(using, keep_parents)
-        # self.ride.available_seats = self.ride.get_available_seats
-        self.ride.save()
-
-    def save(self, *args, **kwargs):
-        super(Participation, self).save(*args, **kwargs)
-        # self.ride.available_seats = self.ride.get_available_seats
-        self.ride.save()
-
-
-def participation_changed(sender, instance, action, **kwargs):
-    if action in 'post_add':
-        instance.available_seats = instance.get_available_seats
-        instance.save()
-

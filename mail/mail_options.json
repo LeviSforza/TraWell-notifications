@@ -1,0 +1,56 @@
+{
+  "accept_req": {
+    "subject": "Your request has been accepted!",
+    "title": "Someone accepted your request!",
+    "content": "It looks like someone has just accepted your request to join a ride. You can check the details on our website.",
+    "message": "Your request to join a ride has been accepted. Make sure you are comfortable with the ride details and are confident of the departure and destination locations. Please try to be at the meeting point a few minutes in advance. Remember to have en exact amount of money with you. We wish you the best journey.",
+    "box_color": "#47B5FF",
+    "picture": "pic_accepted_req",
+    "template": "app/mail/template_ride.txt"
+  },
+    "reject_req": {
+    "subject": "Your request has been rejected!",
+    "title": "Someone rejected your request!",
+    "content": "It looks like someone has just rejected your request to join a ride. You can check the details on our website.",
+    "message": "We regret to inform you that your request to join a ride has been rejected. Don't worry, it sometimes happens. We hope that your next requests will be more successful and wish you the best future journeys.",
+    "box_color": "#FF5151",
+    "picture": "pic_rejected_req",
+    "template": "app/mail/template_ride.txt"
+  },
+  "join_req": {
+    "subject": "You have new join request!",
+    "title": "Someone requested to join your ride!",
+    "content": "It looks like someone has just requested to join your ride. You can check the details on our website.",
+    "message": "Someone has just requested to join your ride and waits for your answer. Please visit our website and accepted or reject the request. Remember, precise and quick communication is the key to good atmosphere on TraWell. We wish you the best journeys.",
+    "box_color": "#47B5FF",
+    "picture": "pic_join_req",
+    "template": "app/mail/template_user.txt"
+  },
+   "edit_info": {
+    "subject": "Your ride was edited!",
+    "title": "There are changes in your ride!",
+    "content": "It looks like the driver has changed some info about the ride you joined. You can check the details on our website.",
+    "message": "The details of the ride You joined were edited by the driver. You can check what changed on our website. Don't worry basic info stayed the same. Please remember that if new details don't suit you, you can resign from participation in the ride. We wish you the best journey.",
+    "box_color": "#47B5FF",
+    "picture": "pic_edit_info",
+    "template": "app/mail/template_ride.txt"
+  },
+   "cancellation_info": {
+    "subject": "Your ride was cancelled!",
+    "title": "Your ride was canceled!",
+    "content": "It looks like the driver has cancelled the ride you joined. You can check the details on our website.",
+    "message": "Unfortunately the driver cancelled the ride you joined. It does happen sometimes, remember that drivers are only people. We invite you to find a new ride on our website. We hope you enjoy your next rides without problems and wish you the best future journeys.",
+    "box_color": "#FF5151",
+    "picture": "pic_ride_canceled_info",
+    "template": "app/mail/template_ride.txt"
+  },
+   "resignation_info": {
+    "subject": "Passenger resigned from your ride!",
+    "title": "Someone resigned from your ride!",
+    "content": "It looks like someone has just resigned from participation in your ride. You can check the details on our website.",
+    "message": "Someone has just requested to join your ride and waits for your answer. Please visit our website and accepted or reject the request. Remember, precise and quick communication is the key to good atmosphere on TraWell. We wish you the best journey.",
+    "box_color": "#FF5151",
+    "picture": "pic_passenger_resigned_info",
+    "template": "app/mail/template_user.txt"
+  }
+}
