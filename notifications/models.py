@@ -25,8 +25,8 @@ class Notification(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
-class Email(models.Model):
+class Mail(models.Model):
     email_id = models.AutoField(primary_key=True)
-    recipient_id: int
-    notification_id: int
+    recipient = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    notification = models.ForeignKey(Notification, on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)

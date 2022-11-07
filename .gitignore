@@ -137,3 +137,8 @@ fabric.properties
 
 .env
 .idea/
+postgres_data
+postgres_data/
+postgres_data/*
+postgres_data/base/
+/postgres_data/
