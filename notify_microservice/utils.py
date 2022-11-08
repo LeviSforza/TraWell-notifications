@@ -114,7 +114,7 @@ def notify_by_decision(decision: Notification.NotificationType, ride: Ride, pass
     if decision == Participation.Decision.PENDING:
         notification = Notification.objects.create(
             recipient_type=Notification.RecipientType.DRIVER,
-            notification_type=Notification.NotificationType.RESIGN_INFO,
+            notification_type=Notification.NotificationType.JOIN_REQ,
             ride=ride,
             sender=passenger
         )

@@ -165,6 +165,7 @@ class MyConsumerStep(bootsteps.ConsumerStep):
                 participation.save()
 
                 # send email notification depending on decision
+                print('get into n b d')
                 notify_by_decision(participation.decision, ride, passenger, driver, participation)
 
         message.ack()
