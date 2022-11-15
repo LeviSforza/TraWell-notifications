@@ -12,6 +12,7 @@ class Ride(models.Model):
     start_date = models.DateTimeField(null=False)
     price = models.DecimalField(null=False, max_digits=10, decimal_places=2)
     driver = models.ForeignKey(User, related_name='driver', on_delete=models.SET_NULL, blank=False, null=True)
+    passengers = models.ManyToManyField(User, blank=True, through='Participation')
 
 
 class Participation(models.Model):
