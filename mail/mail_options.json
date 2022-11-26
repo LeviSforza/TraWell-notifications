@@ -35,7 +35,7 @@
     "picture": "pic_edit_info",
     "template": "./mail/template_ride.txt"
   },
-   "cancellation_info": {
+   "cancel_info": {
     "subject": "Your ride was cancelled!",
     "title": "Your ride was canceled!",
     "content": "It looks like the driver has cancelled the ride you joined. You can check the details on our website.",
@@ -44,7 +44,7 @@
     "picture": "pic_ride_canceled_info",
     "template": "./mail/template_ride.txt"
   },
-   "resignation_info": {
+   "resign_info": {
     "subject": "Passenger resigned from your ride!",
     "title": "Someone resigned from your ride!",
     "content": "It looks like someone has just resigned from participation in your ride. You can check the details on our website.",

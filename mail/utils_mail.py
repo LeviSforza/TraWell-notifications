@@ -90,8 +90,8 @@ def send_mail_ride(notification_type: Notification.NotificationType, sender: Use
                 'box_color': setup_info['box_color'],
                 'city_from': ride.city_from,
                 'city_to': ride.city_to,
-                'ride_date': ride.start_date[:10],
-                'ride_time': str(ride.start_date.hour) + ':' + str(ride.start_date.minute),
+                'ride_date': str(ride.start_date)[:10],
+                'ride_time': str(ride.start_date)[11:16],
                 'price': ride.price,
                 'driver': sender.first_name
             }
