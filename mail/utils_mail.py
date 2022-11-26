@@ -1,4 +1,5 @@
 import json
+import logging
 import os
 from datetime import date
 from dotenv import load_dotenv
@@ -59,6 +60,7 @@ def send_mail_user(notification_type: Notification.NotificationType, sender: Use
 
     except ConnectionError:
         print("Error occurred during sending mail")
+        logging.error("Error occurred during sending mail")
 
     return False
 
@@ -88,7 +90,7 @@ def send_mail_ride(notification_type: Notification.NotificationType, sender: Use
                 'box_color': setup_info['box_color'],
                 'city_from': ride.city_from,
                 'city_to': ride.city_to,
-                'ride_date': ride.start_date.date(),
+                'ride_date': ride.start_date[:10],
                 'ride_time': str(ride.start_date.hour) + ':' + str(ride.start_date.minute),
                 'price': ride.price,
                 'driver': sender.first_name
@@ -98,5 +100,6 @@ def send_mail_ride(notification_type: Notification.NotificationType, sender: Use
 
     except ConnectionError:
         print("Error occurred during sending mail")
+        logging.error("Error occurred during sending mail")
 
     return False

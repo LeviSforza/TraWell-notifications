@@ -187,7 +187,7 @@ HTML_BODY_USER = """
                     <span class="title">{{ title }}</span>
                     <span class="contents">{{ content }}</span>
                     <div class="btn">
-                        <a class="btn-inner" href="https://www.google.com" target="_blank" style="text-decoration:none !important; text-decoration:none; color:white">
+                        <a class="btn-inner" href="http://localhost:5173/" target="_blank" style="text-decoration:none !important; text-decoration:none; color:white">
                             SEE DETAILS
                         </a>
                     </div>
@@ -270,7 +270,7 @@ HTML_BODY_RIDE = """
                     <span class="title">{{ title }}</span>
                     <span class="contents">{{ content }}</span>
                     <div class="btn">
-                        <a class="btn-inner" href="https://www.google.com" target="_blank" style="text-decoration:none !important; text-decoration:none; color:white">
+                        <a class="btn-inner" href="http://localhost:5173/" target="_blank" style="text-decoration:none !important; text-decoration:none; color:white">
                             SEE DETAILS
                         </a>
                     </div>

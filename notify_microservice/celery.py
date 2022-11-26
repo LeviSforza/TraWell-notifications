@@ -39,7 +39,7 @@ with app.pool.acquire(block=True) as conn:
         channel=conn,
         message_ttl=600,
         queue_arguments={
-            'x-queue-type': 'classic'
+            'x-queue_rides-type': 'classic'
         },
         durable=True
     )
@@ -165,7 +165,6 @@ class MyConsumerStep(bootsteps.ConsumerStep):
                 participation.save()
 
                 # send email notification depending on decision
-                print('get into n b d')
                 notify_by_decision(participation.decision, ride, passenger, driver, participation)
 
         message.ack()
