@@ -8,16 +8,19 @@ from users.models import User
 
 
 def create_ride(message):
-    new_ride = Ride.objects.create(
-        ride_id=message['ride_id'],
-        city_from=message['city_from']['name'],
-        city_to=message["city_to"]['name'],
-        start_date=message["start_date"],
-        price=message['price'],
-        driver_id=message['driver']['user_id']
-    )
-    new_ride.save()
-    return new_ride
+    try:
+        Ride.objects.get(ride_id=message['ride_id'])
+    except Ride.DoesNotExist:
+        new_ride = Ride.objects.create(
+            ride_id=message['ride_id'],
+            city_from=message['city_from']['name'],
+            city_to=message["city_to"]['name'],
+            start_date=message["start_date"],
+            price=message['price'],
+            driver_id=message['driver']['user_id']
+        )
+        new_ride.save()
+        return new_ride
 
 
 def update_ride(message, ride):
