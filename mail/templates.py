@@ -103,14 +103,14 @@ CSS_STYLE = """
             .wrapper {
                 margin-bottom: 20px;
             }
-            .label {
+            .form-label {
                 text-align: left;
                 padding-left: 20px;
                 padding-top: 6px;
                 font-style: italic;
                 font-weight: 700;
             }
-            .input {
+            .form-input {
                 text-align: left;
                 padding-right: 20px;
                 padding-left: 10px;
@@ -213,18 +213,18 @@ HTML_BODY_USER = """
             <span class="title">Basic passenger information:</span>
             <table class="table">
                 <tr>
-                    <td class="label">Name:</td>
-                    <td class="input">{{ name }}</td>
-                    <td class="label">Age:</td>
-                    <td class="input">{{ age }}</td>
+                    <td class="form-label">Name:</td>
+                    <td class="form-input">{{ name }}</td>
+                    <td class="form-label">Age:</td>
+                    <td class="form-input">{{ age }}</td>
                   </tr>
                   <tr>
-                    <td class="label">Rating:</td>
-                    <td class="input">{{ avg_rate }}
-                        <span class=" star"> &#x2605; </span>
+                    <td class="form-label">Rating:</td>
+                    <td class="form-input">{{ avg_rate }}
+                        <span class="star"> &#x2605; </span>
                     </td>
-                    <td class="label">No. of seats:</td>
-                    <td class="input">{{ seats }}</td>
+                    <td class="form-label">No. of seats:</td>
+                    <td class="form-input">{{ seats }}</td>
                   </tr>
             </table>
         </div>
@@ -296,22 +296,22 @@ HTML_BODY_RIDE = """
             <span class="title">Basic ride information:</span>
             <table class="table">
                 <tr>
-                    <td class="label">From:</td>
-                    <td class="input">{{ city_from }}</td>
-                    <td class="label">To:</td>
-                    <td class="input">{{ city_to }}</td>
+                    <td class="form-label">From:</td>
+                    <td class="form-input">{{ city_from }}</td>
+                    <td class="form-label">To:</td>
+                    <td class="form-input">{{ city_to }}</td>
                   </tr>
                   <tr>
-                    <td class="label">Date:</td>
-                    <td class="input">{{ ride_date }}</td>
-                    <td class="label">Time:</td>
-                    <td class="input">{{ ride_time }}</td>
+                    <td class="form-label">Date:</td>
+                    <td class="form-input">{{ ride_date }}</td>
+                    <td class="form-label">Time:</td>
+                    <td class="form-input">{{ ride_time }}</td>
                   </tr>
                   <tr>
-                    <td class="label">Price:</td>
-                    <td class="input">{{ price }} zł</td>
-                    <td class="label">Driver:</td>
-                    <td class="input">{{ driver }}</td>
+                    <td class="form-label">Price:</td>
+                    <td class="form-input">{{ price }} zł</td>
+                    <td class="form-label">Driver:</td>
+                    <td class="form-input">{{ driver }}</td>
                   </tr>
             </table>
         </div>

@@ -51,9 +51,9 @@ def send_mail_user(notification_type: Notification.NotificationType, sender: Use
                 'message': setup_info['message'],
                 'box_color': setup_info['box_color'],
                 'name': sender.first_name,
+                'seats': participation.reserved_seats,
                 'age': age(sender.date_of_birth),
-                'avg_rate': str(sender.avg_rate),
-                'seats': participation.reserved_seats
+                'avg_rate': str(sender.avg_rate)
             }
         )
         return True
