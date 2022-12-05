@@ -108,24 +108,24 @@ class MyConsumerStep(bootsteps.ConsumerStep):
                 notify_of_ride_changes(ride, Notification.NotificationType.EDIT_INFO)
 
         if body['title'] == 'rides.cancel':
-            check_and_create_user(body['message']['ride']['driver'])
+            check_and_create_user(body['message']['driver'])
             try:
-                ride = Ride.objects.get(ride_id=body['message']['ride']['ride_id'])
-                update_ride(body['message']['ride'], ride)
+                ride = Ride.objects.get(ride_id=body['message']['ride_id'])
+                update_ride(body['message'], ride)
             except Ride.DoesNotExist:
-                ride = create_ride(body['message']['ride'])
+                ride = create_ride(body['message'])
 
             # create notification
             notify_of_ride_changes(ride, Notification.NotificationType.CANCEL_INFO)
 
         if body['title'] == 'rides.cancel.many':
             for ride in body['message']:
-                check_and_create_user(body['message']['ride']['driver'])
+                check_and_create_user(ride['driver'])
                 try:
-                    ride = Ride.objects.get(ride_id=ride['ride']['ride_id'])
-                    update_ride(body['message']['ride'], ride)
+                    ride = Ride.objects.get(ride_id=ride['ride_id'])
+                    update_ride(body['message'], ride)
                 except Ride.DoesNotExist:
-                    create_ride(ride['ride'])
+                    create_ride(ride)
 
                 # create notification
                 notify_of_ride_changes(ride, Notification.NotificationType.CANCEL_INFO)

@@ -51,9 +51,9 @@ def send_mail_user(notification_type: Notification.NotificationType, sender: Use
                 'message': setup_info['message'],
                 'box_color': setup_info['box_color'],
                 'name': sender.first_name,
+                'seats': participation.reserved_seats,
                 'age': age(sender.date_of_birth),
-                'avg_rate': str(sender.avg_rate),
-                'seats': participation.reserved_seats
+                'avg_rate': str(sender.avg_rate)
             }
         )
         return True
@@ -91,7 +91,7 @@ def send_mail_ride(notification_type: Notification.NotificationType, sender: Use
                 'city_from': ride.city_from,
                 'city_to': ride.city_to,
                 'ride_date': str(ride.start_date)[:10],
-                'ride_time': str(ride.start_date.hour) + ':' + str(ride.start_date.minute),
+                'ride_time': str(ride.start_date)[11:16],
                 'price': ride.price,
                 'driver': sender.first_name
             }

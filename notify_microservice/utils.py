@@ -1,3 +1,5 @@
+import datetime
+
 from mail.utils_mail import send_mail_ride, send_mail_user
 from notifications.models import Notification, Mail
 from rides.models import Ride, Participation
@@ -6,16 +8,19 @@ from users.models import User
 
 
 def create_ride(message):
-    new_ride = Ride.objects.create(
-        ride_id=message['ride_id'],
-        city_from=message['city_from']['name'],
-        city_to=message["city_to"]['name'],
-        start_date=message["start_date"],
-        price=message['price'],
-        driver_id=message['driver']['user_id']
-    )
-    new_ride.save()
-    return new_ride
+    try:
+        Ride.objects.get(ride_id=message['ride_id'])
+    except Ride.DoesNotExist:
+        new_ride = Ride.objects.create(
+            ride_id=message['ride_id'],
+            city_from=message['city_from']['name'],
+            city_to=message["city_to"]['name'],
+            start_date=message["start_date"],
+            price=message['price'],
+            driver_id=message['driver']['user_id']
+        )
+        new_ride.save()
+        return new_ride
 
 
 def update_ride(message, ride):
@@ -34,20 +39,33 @@ def check_and_create_user(message):
     try:
         user = User.objects.get(user_id=message['user_id'])
     except User.DoesNotExist:
-        user = User.objects.create(
-            user_id=message['user_id'],
-            first_name=message['first_name'],
-            last_name=message["last_name"],
-            email=message["email"],
-            date_of_birth=message['date_of_birth'],
-            private=True if message['user_type'] == 'private' else False,
-            avg_rate=message["avg_rate"],
-        )
-        user.save()
+        try:
+            user = User.objects.create(
+                user_id=message['user_id'],
+                first_name=message['first_name'],
+                last_name=message["last_name"],
+                email=message["email"],
+                date_of_birth=message['date_of_birth'],
+                private=True if message['user_type'] == 'private' else False,
+                avg_rate=message["avg_rate"],
+            )
+            user.save()
+        except KeyError:
+            user = User.objects.create(
+                user_id=message['user_id'],
+                first_name=message['first_name'],
+                last_name=message["last_name"],
+                email=message["email"],
+                date_of_birth=datetime.date.today(),
+                private=True if message['private'] is True else False,
+                avg_rate=message["avg_rate"],
+            )
+            user.save()
     return user
 
 
-def notify_by_decision(decision: Notification.NotificationType, ride: Ride, passenger: User, driver: User, participation: Participation):
+def notify_by_decision(decision: Notification.NotificationType, ride: Ride, passenger: User, driver: User,
+                       participation: Participation):
     if decision == Participation.Decision.ACCEPTED:
         notification = Notification.objects.create(
             recipient_type=Notification.RecipientType.PASSENGER,
